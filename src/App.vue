@@ -1,8 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
-import AppValue from "./components/AppValue.vue";
-
-const round = (val) => Math.round(val * 100) / 100;
+import BaseInputNumber from "./components/BaseInputNumber.vue";
+import { round } from "./utils/math.js";
 
 const tempSI = ref(273.15);
 
@@ -31,9 +30,9 @@ const tempKelvin = computed({
 <template>
 	<div>
 		<h1>Temperature Converter</h1>
-		<AppValue label="Kelvin" v-model="tempKelvin" />
-		<AppValue label="Celsius" v-model="tempCelsius" />
-		<AppValue label="Fahrenheit" v-model="tempFahrenheit" />
+		<BaseInputNumber label="Kelvin" v-model="tempKelvin" />
+		<BaseInputNumber label="Celsius" v-model="tempCelsius" />
+		<BaseInputNumber label="Fahrenheit" v-model="tempFahrenheit" />
 	</div>
 </template>
 
