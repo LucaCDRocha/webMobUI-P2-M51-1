@@ -13,6 +13,12 @@ const bookmarks = ref([
 		id: 2,
 		name: "React",
 		url: "https://reactjs.org/",
+		categories: ["JavaScript", "Frontend"],
+	},
+	{
+		id: 3,
+		name: "Angular",
+		url: "https://angular.io/",
 		categories: ["Frontend"],
 	},
 ]);
@@ -21,6 +27,7 @@ const addBookmark = (bookmark) => {
 	// increment id
 	id.value++;
 	bookmark.id = id.value;
+	console.log(bookmark);
 	bookmarks.value.push(bookmark);
 };
 

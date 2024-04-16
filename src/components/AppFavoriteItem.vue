@@ -10,24 +10,28 @@ const favicon = (url) => {
 
 <template>
 	<div>
-		<img :src="favicon(bookmark.url)" alt="favicon" />
 		<li>
-			<a :href="bookmark.url"> {{ bookmark.name }} | {{ bookmark.categories.join(", ") }} </a>
+			<div>
+				<img :src="favicon(bookmark.url)" alt="favicon" />
+				<a :href="bookmark.url"> {{ bookmark.name }} | {{ bookmark.categories.join(", ") }} </a>
+			</div>
 			<button @click="removeBookmark(bookmark)">Remove</button>
 		</li>
 	</div>
 </template>
 
 <style scoped>
-div {
+li {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	align-items: center;
+	justify-content: space-between;
+	
+	margin: 10px 0;
+}
+li div {
+	display: flex;
 	align-items: center;
 	gap: 10px;
-}
-li {
-	list-style: none;
 }
 button {
 	margin-left: 10px;
