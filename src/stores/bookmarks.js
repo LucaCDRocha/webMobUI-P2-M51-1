@@ -1,8 +1,9 @@
 import { ref } from "vue";
+import { useJsonStorage } from "../composables/useJsonStorage";
 
 const id = ref(3);
 
-const bookmarks = ref([
+const { data: bookmarks } = useJsonStorage("bookmarks", [
 	{
 		id: 1,
 		name: "Vue.js",
@@ -22,6 +23,27 @@ const bookmarks = ref([
 		categories: ["Frontend"],
 	},
 ]);
+
+// const bookmarks = ref([
+// 	{
+// 		id: 1,
+// 		name: "Vue.js",
+// 		url: "https://vuejs.org/",
+// 		categories: ["JavaScript"],
+// 	},
+// 	{
+// 		id: 2,
+// 		name: "React",
+// 		url: "https://reactjs.org/",
+// 		categories: ["JavaScript", "Frontend"],
+// 	},
+// 	{
+// 		id: 3,
+// 		name: "Angular",
+// 		url: "https://angular.io/",
+// 		categories: ["Frontend"],
+// 	},
+// ]);
 
 const addBookmark = (bookmark) => {
 	// increment id
